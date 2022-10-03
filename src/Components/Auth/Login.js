@@ -93,7 +93,7 @@ function Login() {
                         <h4>fluentCRM</h4>
                     </div>
                     <input name='Email' placeholder='Email' className='form-control mb-5' onChange={formik.handleChange} value={formik.values.Email}></input>
-                    <input name='Password' placeholder='Password' className='form-control mb-5' onChange={formik.handleChange} value={formik.values.Password}></input >
+                    <input name='Password' type="password" placeholder='Password' className='form-control mb-5' onChange={formik.handleChange} value={formik.values.Password}></input >
                     <div class="d-grid gap-2 mt-2 text-center">
                         <button class="edit_btn" type="submit">Login</button>
                         <Link to={'/Forgot'}>Forgot Password ?</Link>

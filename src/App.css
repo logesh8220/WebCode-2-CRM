@@ -61,7 +61,7 @@
 }
 .content-div{
   background-image: url("https://existek.com/wp-content/themes/existek/images/background-blog-single.webp");
-  height:95vh;
+  height:100vh;
   background-repeat: no-repeat;
   background-size: cover;
   overflow-y: hidden;
@@ -291,7 +291,7 @@ color: #7742e6;
     color: lightgrey;
     font-family: 'Rajdhani', sans-serif;
     padding: 10px;
-    font-size: 9px;
+    font-size: 7px;
   }
   .text{
     font-size: 11px;
@@ -303,5 +303,14 @@ color: #7742e6;
    
     border-radius:5px;
     /* box-shadow: 2px 2px 30px rgba(38, 35, 35, 0.284); */
+  }
+  .content-div{
+    background-image: url("https://existek.com/wp-content/themes/existek/images/background-blog-single.webp");
+    height:115vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: hidden;
+    box-shadow: inset 0px -850px 500px -600px #fff;
+  
   }
 }

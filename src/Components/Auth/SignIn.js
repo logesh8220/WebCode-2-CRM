@@ -128,6 +128,7 @@ function SignIn() {
           <input
             name="ConfirmPassword"
             placeholder="ConfirmPassword"
+            type="password"
             className={formik.errors.ConfirmPassword && formik.touched?"input_error form-control mt-5":"form-control mt-5"}
             onChange={formik.handleChange}
             value={formik.values.ConfirmPassword}
