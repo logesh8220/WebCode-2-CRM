@@ -25,6 +25,7 @@ function Login() {
                     })
                 } else {
                     window.localStorage.setItem("app_token", data.data.createdToken)
+                    setloading(false)
                     console.log(getdata.data[0].Type)
                     switch (getdata.data[0].Type) {
                         case "User":
@@ -49,7 +50,7 @@ function Login() {
                     }
 
                 }
-                setloading(false)
+                
             } catch (error) {
                 console.log(error)
                 toast.error(error.response.data.message, {
