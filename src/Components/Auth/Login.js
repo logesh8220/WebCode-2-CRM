@@ -8,6 +8,7 @@ import { env } from '../Config'
 
 function Login() {
     // const [datas, setdata] = useState([])
+    const [isLoading, setloading] = useState(false)
     const Navigateto = useNavigate()
     const formik = useFormik({
         initialValues: {
@@ -16,8 +17,10 @@ function Login() {
         },
         onSubmit: async values => {
             try {
+                setloading(true)
                 let data = await axios.post(`${env.api}/login`, values)
                 let getdata = await axios.get(`${env.api}/auth/${values.Email}`)
+                setloading(false)
                 if (!data.status === 200) {
                     toast.error("User Not Available", {
                         className: "tost-massage"
@@ -95,7 +98,15 @@ function Login() {
                     <input name='Email' placeholder='Email' className='form-control mb-5' onChange={formik.handleChange} value={formik.values.Email}></input>
                     <input name='Password' type="password" placeholder='Password' className='form-control mb-5' onChange={formik.handleChange} value={formik.values.Password}></input >
                     <div class="d-grid gap-2 mt-2 text-center">
-                        <button class="edit_btn" type="submit">Login</button>
+                        {/* <button class="edit_btn" type="submit">Login</button> */}
+                        <div>
+                            {
+                                isLoading? <button type="submit" className="btn-send edit_btn"><div class="spinner-border ms-auto" role="status" aria-hidden="true"></div></button>:
+                            <button type="submit" className="btn-send">Login</button>
+                            }
+
+
+                        </div>
                         <Link to={'/Forgot'}>Forgot Password ?</Link>
                         <Link to={'/'}class="edit_btn" type="submit">Close</Link>
                     </div>
