@@ -43,7 +43,7 @@ function Login() {
                             break;
                         case "Admin":
                             Navigateto(`/Admin/${getdata.data[0].FirstName}`)
-                             toast(`${`Welcome ${getdata.data[0].FirstName}`}`, {
+                            toast(`${`Welcome ${getdata.data[0].FirstName}`}`, {
                                 className: "tost-massage"
                             })
                             break;
@@ -99,16 +99,34 @@ function Login() {
                     <input name='Password' type="password" placeholder='Password' className='form-control mb-5' onChange={formik.handleChange} value={formik.values.Password}></input >
                     <div class="d-grid gap-2 mt-2 text-center">
                         {/* <button class="edit_btn" type="submit">Login</button> */}
-                        <div>
+                        <div className="d-grid gap-2 mt-2 text-center">
                             {
-                                isLoading? <button type="submit" className="btn-send edit_btn"><div class="spinner-border ms-auto" role="status" aria-hidden="true"></div></button>:
-                            <button type="submit" className="btn-send">Login</button>
+                                isLoading ? <button type="submit" className="edit_btn"><div class="spinner-border ms-auto" role="status" aria-hidden="true"></div></button> :
+                                    <button type="submit" className="edit_btn">Login</button>
                             }
 
 
                         </div>
                         <Link to={'/Forgot'}>Forgot Password ?</Link>
-                        <Link to={'/'}class="edit_btn" type="submit">Close</Link>
+                        <Link to={'/'} class="edit_btn" type="submit">Close</Link>
+                    </div>
+                    <div className="text-center text-muted container p-3 mb-5 mt-5" style={{ boxShadow: "1px 1px 10px lightgray" }}>
+                        <h1 className="text-muted">Login Credentials</h1>
+                        <div>
+                            <h5>Admin</h5>
+                            <h6>Admindemo@gmail.com</h6>
+                            <h6>Admindemo1</h6>
+                        </div>
+                        <div>
+                            <h5>User</h5>
+                            <h6>guvidemo@gmail.com</h6>
+                            <h6>Guvidemo1</h6>
+                        </div>
+                        <div>
+                            <h5>Employee</h5>
+                            <h6>Employee@gmail.com</h6>
+                            <h6>Employee1</h6>
+                        </div>
                     </div>
                 </form>
 

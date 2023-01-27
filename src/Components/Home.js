@@ -1,7 +1,21 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom'
+import { env } from './Config'
 
 function Home() {
+    const [data,setdata] = useState([])
+    const [isloading,setLoading] = useState(false)
+    useEffect(()=>{
+        LoadeData()
+    },[])
+    let LoadeData = async () =>{
+        setLoading(true)
+     let products = await axios.get(`${env.api}/products`)
+            setdata(products.data)
+            setLoading(false)
+        }
+     console.log(data)
     return (
         <div>
             <div className='bg-light sticky-top'>
@@ -34,7 +48,32 @@ function Home() {
                 </div>
 
             </div>
-            <div className='home-div-2 text-center'>
+
+        <div>
+        <div className='container text-center mt-5 table-responsive' style={{ boxShadow: "2px 2px 20px lightGray", borderRadius: "3PX" }}>
+                {
+
+             isloading?<h1>Loading....</h1>:
+             data.map((data)=>{
+                return(
+                    
+                                 <div className='card-div text-center '>
+                                 <div className='product-card col-lg-6'>
+                                    <img src={data.Imgurl} className='pr-img'></img>
+                                     <h2 className='pr-h2'>{data.Name}</h2>
+                                     <h5 className='pr-h2'>{data.Uses}</h5>
+                                     <h5 className='pr-h2'>{data.Subject}</h5>
+                                     <h5 className='pr-h2'>{data.description}</h5>
+                                 </div>
+                    
+                             </div>
+
+                )
+             })
+                }
+            </div>
+        </div>
+            {/* <div className='home-div-2 text-center'>
                 <div className=' clearfix'>
                 <img src='admin2.png' className='home-img col-md-6 float-md-end mb-3 ms-md-3 '></img>
             </div>
@@ -55,7 +94,7 @@ function Home() {
             </div>
  
 
-            </div>
+            </div> */}
             <div className='footer  text-center p-5'>
                 <div className=''>
                     <h5 className='text'>Customer service success starts here <Link to={'/SignIn'} className='edit_btn'>SignIn</Link></h5>

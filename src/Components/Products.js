@@ -12,8 +12,10 @@ function Products() {
         LoadeData()
     },[])
     let LoadeData = async () =>{
+        setLoading(true)
      let products = await axios.get(`${env.api}/products`)
             setdata(products.data)
+            setLoading(false)
         }
      console.log(data)
     
